@@ -5,7 +5,7 @@ from orm import Model, StringField, BooleanField, FloatField, TextField
 
 
 def next_id():
-    return '%015d%s000' % (int(time.time()*1000, uuid.uuid4().hex))
+    return '%015d%s000' % (int(time.time())*1000, uuid.uuid4().hex)
 
 
 class User(Model):
@@ -16,11 +16,11 @@ class User(Model):
     user_name = StringField(ddl='varchar(50)')
     user_image = StringField(ddl='varchar(500)')
     admin = BooleanField()
-    create_at = FloatField(default=time.time())
+    create_at = FloatField(default=time.time)
 
 
 class Article(Model):
-    __table__ = 'Article'
+    __table__ = 'article'
 
     id = StringField(primary_key=True, default=next_id(), ddl='varchar(50)')
     user_id = StringField(ddl='varchar(50)')
@@ -28,11 +28,11 @@ class Article(Model):
     user_name = StringField(ddl='varchar(50)')
     summary = StringField(ddl='varchar(50)')
     content = TextField()
-    create_at = FloatField(default=time.time())
+    create_at = FloatField(default=time.time)
 
 
 class Comment(Model):
-    __table__ = 'Comment'
+    __table__ = 'comment'
 
     id = StringField(primary_key=True, default=next_id(), ddl='varchar(50)')
     user_id = StringField(ddl='varchar(50)')
@@ -40,7 +40,7 @@ class Comment(Model):
     user_name = StringField(ddl='varchar(50)')
     user_image = StringField(ddl='varchar(500)')
     content = TextField()
-    create_at = FloatField(default=time.time())
+    create_at = FloatField(default=time.time)
 
 
 
