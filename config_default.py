@@ -3,11 +3,11 @@
 configs = {
     'db': {
         'host': '127.0.0.1',
-        'port': '8080',
+        'port': '3306',
         'user': 'www-data',
-        'database': 'yourdb',
+        'database': 'awesome',
     },
     'session': {
-        'secret': 'THESECRET'
+        'secret': ''
     }
 }

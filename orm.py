@@ -53,7 +53,7 @@ async def select(sql, args, size=None):
 async def execute(sql, args):
     log(sql)
     with(await __pool) as conn:
-# Waiting for next version
+    # Waiting for next version
         try:
             cur = await conn.cursor()
             await cur.execute(sql.replace('?', '%s'), args)
@@ -167,7 +167,6 @@ class Model(dict, metaclass=ModelMetaclass):
         rows = await execute(self.__insert__, args)
         if rows != 1:
             logging.warning('failed to save by primary key: affected rows: %s' % rows)
-
 
     async def remove(self):
         args = [self.getValue(self.__primary_key__)]
